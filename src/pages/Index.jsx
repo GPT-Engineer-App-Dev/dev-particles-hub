@@ -1,5 +1,6 @@
 import { Box, Text, Image, Button, VStack, Heading, SimpleGrid, Icon } from '@chakra-ui/react';
 import { FaNodeJs, FaReact, FaDotCircle, FaJsSquare, FaGofore } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -31,6 +32,11 @@ const Index = () => {
         <Button colorScheme="blue" size="lg">
           Get Started
         </Button>
+        <Link to="/developers" style={{ textDecoration: 'none' }}>
+          <Button colorScheme="blue" size="lg" mt={4}>
+            View Developers
+          </Button>
+        </Link>
       </VStack>
     </Box>
   );
