@@ -1,24 +1,24 @@
 import { Box, Text, VStack, Heading, Tag, SimpleGrid, Input, Select, Stack } from '@chakra-ui/react';
 import { useState } from 'react';
 
-const [searchTerm, setSearchTerm] = useState('');
-const [filterTech, setFilterTech] = useState('');
-const developers = [
-  { name: 'John Doe', location: 'New York, USA', technologies: ['React', 'Node.js'] },
-  { name: 'Jane Smith', location: 'Berlin, Germany', technologies: ['Go', 'Python'] },
-  { name: 'Carlos Ruiz', location: 'Madrid, Spain', technologies: ['Java', 'Spring Boot'] }
-];
-
-const filteredDevelopers = developers.filter(dev => {
-  return (
-    (dev.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-     dev.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-     dev.technologies.join(', ').toLowerCase().includes(searchTerm.toLowerCase())) &&
-    (filterTech === '' || dev.technologies.includes(filterTech))
-  );
-});
-
 const DevelopersList = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterTech, setFilterTech] = useState('');
+  const developers = [
+    { name: 'John Doe', location: 'New York, USA', technologies: ['React', 'Node.js'] },
+    { name: 'Jane Smith', location: 'Berlin, Germany', technologies: ['Go', 'Python'] },
+    { name: 'Carlos Ruiz', location: 'Madrid, Spain', technologies: ['Java', 'Spring Boot'] }
+  ];
+
+  const filteredDevelopers = developers.filter(dev => {
+    return (
+      (dev.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       dev.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       dev.technologies.join(', ').toLowerCase().includes(searchTerm.toLowerCase())) &&
+      (filterTech === '' || dev.technologies.includes(filterTech))
+    );
+  });
+
   return (
     <Box textAlign="center" fontSize="xl" p={5}>
       <VStack spacing={8}>
